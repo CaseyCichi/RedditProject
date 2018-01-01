@@ -1,38 +1,27 @@
-<h1>Cats!</h1>
-
-<h2>Cats that are not sleepy!</h2>
-
-<ul>
-  {{#each cats}}
-    {{#unless sleepy}} <!-- current sleepy===false -->
-      {{> cats/cat-block sleep=false}}
-    {{/unless}}
-  {{/each}}
-</ul>
-
-<h2>Cats that are sleepy!</h2>
-
-<ul>
-  {{#each cats}}
-    {{#if sleepy}} <!-- sleepy === true -->
-      {{> cats/cat-block sleep=true}}
-    {{/if}}
-  {{/each}}
-</ul>
-
-<h2>Add a Cat</h2>
-<form class="create-form">
-
-  <div class="form-group">
-    <label for="ca">Cat Name:</label>
-    <input type="text" id="ca" name="name">
+<div class="container">
+  <div class="row">
+    <h1 class="title center-align"> FORUMMMMMS YAY </h1>
   </div>
 
-  <div class="form-group">
-    <label for="slee">Sleepy?</label><br>
-    <input type="radio" name="sleepy" value="1" checked> Sleepy!<br>
-    <input type="radio" name="sleepy" value="0"> Awake
-  </div>
+  <nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">Headlines</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="sass.html">Sass</a></li>
+        <li><a href="badges.html">Components</a></li>
+        <li><a href="collapsible.html">JavaScript</a></li>
+      </ul>
+    </div>
+  </nav>
 
-  <button type="submit">Add Cat</button>
-</form>
+
+  <div class="row headline">
+    {{> posts/header-block}}
+  </div>
+  <div class="row articles">
+    {{> posts/post-block}}
+    {{> posts/post-block}}
+    {{> posts/post-block}}
+    {{> posts/post-block}}    
+  </div>
+</div>
