@@ -3,9 +3,22 @@ body {
 }
 
 .container {
-	background: #e8f5e9;
+	background: #f06292;
 }
 
 .headlines-title {
 	padding-left: 2rem !important;
+}
+
+.vote {
+	background: #e0e0e0;
+	padding: 0 1rem;
+}
+
+.header-link {
+	padding-left: 0 !important;
+}
+
+.card {
+	margin: 1rem 2rem 1rem 2rem;
 }
