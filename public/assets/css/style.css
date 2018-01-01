@@ -5,3 +5,7 @@ body {
 .container {
 	background: #e8f5e9;
 }
+
+.headlines-title {
+	padding-left: 2rem !important;
+}
