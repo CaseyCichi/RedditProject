@@ -1,13 +1,15 @@
 body {
 	background: #5d4037;
+	color: white;
 }
 
 .container {
-	background: #f06292;
+	background: #f8bbd0;
 }
 
 .headlines-title {
 	padding-left: 2rem !important;
+	font-size: 2rem;
 }
 
 .vote {
@@ -21,4 +23,14 @@ body {
 
 .card {
 	margin: 1rem 2rem 1rem 2rem;
+}
+
+.post-list li{
+	list-style-type: none;
+	display: inline;
+	padding: 0rem 1rem 0rem 0rem;
+}
+
+label {
+	color: #e1f5fe !important;
 }
