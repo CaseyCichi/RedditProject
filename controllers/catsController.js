@@ -19,4 +19,8 @@ router.get("/", function(req, res) {
 router.get('/post', function(req, res) {
   res.render('new-post');
 });
+
+router.get('/profile', function(req, res) {
+  res.render('profile');
+})
 module.exports = router;

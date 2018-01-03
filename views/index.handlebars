@@ -3,10 +3,13 @@
     {{> posts/header-block}}
   </div>
   <div class="row articles">
-    {{> posts/post-block}}
-    {{> posts/post-block}}
+
+    {{#each cats}}
+        {{> posts/post-block}}
+    {{/each}}
+{{!--     {{> posts/post-block}}
 
     {{> posts/post-block}}
     {{> posts/post-block}}    
-  </div>
+ --}}  </div>
 </div>

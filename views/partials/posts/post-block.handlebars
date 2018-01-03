@@ -1,24 +1,27 @@
 <div class="col s6">
 	<div class="card section">
 		<div class="card-image waves-effect waves-block waves-light">
-			<img class="" src="/assets/images/stock.png">
+			<img class="" src="/assets/images/stock.png {{image}}">
 		</div>
 		<div class="card-content">
-			<span class="card-title grey-text text-darken-4">Card Title | Fake date {{Date}}
+			<span class="card-title grey-text text-darken-4">Card Title {{title}} | Fake date {{name}}
 				{{!-- <i class="material-icons right">more_vert</i> --}}
-			<div class="col right s1">
-						<a class="right btn-flat vote waves-effect waves-green"><i class="fa fa-angle-up" aria-hidden="true"></i></a>
-						<a class="right btn-flat vote waves-effect waves-red"><i class="fa fa-angle-down" aria-hidden="true"></i></a>
+			<div class="col right s2">
+						<a class="right btn-flat vote waves-effect waves-green" id="up"><i class="fa fa-angle-up" aria-hidden="true"></i></a>
+						<a class="right btn-flat vote waves-effect waves-red" id="down"><i class="fa fa-angle-down" aria-hidden="true"></i></a>
+						<span class="center-align valign-wrapper" style="margin-top: 1.5rem" id="score">
+							<span>0{{score}}</span>
+						</span>
 			</div>
 
 			</span>
 
 			<ul class="post-list">
 				<li >
-					<a href="#">Comments</a>
+					<a href="{{full-page}}">Comments</a>
 				</li>
 				<li>
-					<a href="#">Share</a>
+					<a href="{{share-link}}">Share</a>
 				</li>
 			</ul>
 		</div>
