@@ -9,7 +9,13 @@ var cat = require("../models/cat.js");
 router.get("/", function(req, res) {
   cat.all(function(data) {
     var hbsObject = {
-      cats: data
+      cats: data,
+      headline: {
+        id: 0,
+        title: "Cute dogs",
+        Date: "1/3/2018",
+        score: 50,
+      }
     };
     console.log(hbsObject);
     res.render("index", hbsObject);

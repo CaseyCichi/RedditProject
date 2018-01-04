@@ -57,7 +57,6 @@ $(document).ready(function () {
   //     }
   //     );
   // });
-  var score = 0;
   $('.upvote').on("click", function(event) {
     var id = "#" + $(this).data('id');
     var score = $(id).data('value');
@@ -65,7 +64,7 @@ $(document).ready(function () {
     $(id).text(score);
 
   });
-    $('.downvote').on("click", function(event) {
+  $('.downvote').on("click", function(event) {
     var id = "#" + $(this).data('id');
     var score = $(id).data('value');
     if(score == 0) return;
