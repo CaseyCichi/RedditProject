@@ -19,12 +19,6 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: true,
             required: false,
         },
-        ContentTypeId: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            required: true,
-            primaryKey: true,
-        },
         UserId: {
             type: DataTypes.INTEGER,
             allowNull: false,
