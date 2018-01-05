@@ -1,23 +1,23 @@
-
-module.exports = function(sequelize, DataTypes){
+module.exports = function (sequelize, DataTypes) {
     var User = sequelize.define('User', {
-        userid: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            autoincrement: true,
-            primaryKey: true,
-        },
+        // userid: {
+        //     type: DataTypes.INTEGER,
+        //     allowNull: false,
+        //     autoincrement: true,
+        //     primaryKey: true,
+        // },
         username: {
             type: DataTypes.STRING,
             allowNull: false,
-            required: true
+            required: true,
+            unique: true
         },
         password: {
             type: DataTypes.STRING,
             allowNull: false,
             required: true
         },
-        pawup: {
+        furma: {
             type: DataTypes.INTEGER,
             defaultValue: 0,
             allowNull: false,
@@ -26,5 +26,13 @@ module.exports = function(sequelize, DataTypes){
     }, {
         timestamps: true
     });
+
+    User.associate = function (models) {
+        User.hasMany(models.Post, {
+            as: 'posts',
+            foreignKey: 'id'
+        });
+    };
+
     return User;
 };

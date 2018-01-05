@@ -1,18 +1,17 @@
-
-module.exports = function(sequelize, DataTypes){
-    var Content = sequelize.define('content', {
-        contentid: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            autoincrement: true,
-            primaryKey: true,
-        },
-        postid: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            required: true,
-            primaryKey: true,
-        },
+module.exports = function (sequelize, DataTypes) {
+    var Content = sequelize.define('Content', {
+        // contentid: {
+        //     type: DataTypes.INTEGER,
+        //     allowNull: false,
+        //     autoincrement: true,
+        //     primaryKey: true,
+        // },
+        // postid: {
+        //     type: DataTypes.INTEGER,
+        //     allowNull: false,
+        //     required: true,
+        //     primaryKey: true,
+        // },
         title: {
             type: DataTypes.STRING,
             allowNull: true,
@@ -26,5 +25,13 @@ module.exports = function(sequelize, DataTypes){
     }, {
         timestamps: true
     });
+
+    Content.associate = function (models) {
+        Content.belongsTo(models.Post, {
+            primaryKey: 'id'
+        });
+    };
+
+
     return Content;
 };

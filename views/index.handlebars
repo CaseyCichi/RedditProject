@@ -1,15 +1,9 @@
-{{!-- <div class="container">
+<div class="container">
   <div class="row headline">
     {{> posts/header-block}}
   </div>
   <div class="row articles">
 
-    {{#each cats}}
-        {{> posts/post-block}}
-    {{/each}}
-{{!--     {{> posts/post-block}}
-
-    {{> posts/post-block}}
-    {{> posts/post-block}}    
- --}}  </div>
-</div> --}}
+    {{#each cats}} {{> posts/post-block}} {{/each}} {{!-- {{> posts/post-block}} {{> posts/post-block}} {{> posts/post-block}}
+    --}} </div>
+</div>
