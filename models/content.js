@@ -1,35 +1,30 @@
-'use strict'
 
-module.exports = (sequelize, DataTypes) => {
-    const Content = sequelize.define('content', {
-        ContentId: {
+module.exports = function(sequelize, DataTypes){
+    var Content = sequelize.define('content', {
+        contentid: {
             type: DataTypes.INTEGER,
             allowNull: false,
             autoincrement: true,
             primaryKey: true,
         },
-        PostId: {
+        postid: {
             type: DataTypes.INTEGER,
             allowNull: false,
             required: true,
             primaryKey: true,
         },
-        Title: {
-            type: DataTypes.String,
+        title: {
+            type: DataTypes.STRING,
             allowNull: true,
             required: false,
         },
-        Content: {
-            type: DataTypes.String,
+        content: {
+            type: DataTypes.STRING,
             allowNull: true,
             required: false,
-        },
-        AddDate: {
-            type: 'TIMESTAMP',
-            defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
-            allowNull: false,
-            required: true
         }
+    }, {
+        timestamps: true
     });
     return Content;
 };

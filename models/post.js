@@ -1,36 +1,31 @@
-'use strict'
 
-module.exports = (sequelize, DataTypes) => {
-    const Post = sequelize.define('post', {
-        PostId: {
+module.exports = function(sequelize, DataTypes){
+    var Post = sequelize.define('post', {
+        postid: {
             type: DataTypes.INTEGER,
             allowNull: false,
             autoincrement: true,
             primaryKey: true,
         },
-        PostTypeId: {
+        posttypeid: {
             type: DataTypes.INTEGER,
             allowNull: false,
             required: true,
             primaryKey: true,
         },
-        ParentTypeId: {
+        parentttypeid: {
             type: DataTypes.INTEGER,
             allowNull: true,
             required: false,
         },
-        UserId: {
+        userid: {
             type: DataTypes.INTEGER,
             allowNull: false,
             required: true,
             foreignKey: true,
-        },
-        AddDate: {
-            type: 'TIMESTAMP',
-            defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
-            allowNull: false,
-            required: true
         }
+    }, {
+        timestamps: true
     });
     return Post;
 };

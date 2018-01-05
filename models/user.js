@@ -1,35 +1,30 @@
-'use strict'
 
-module.exports = (sequelize, DataTypes) => {
-    const User = sequelize.define('user', {
-        UserId: {
+module.exports = function(sequelize, DataTypes){
+    var User = sequelize.define('User', {
+        userid: {
             type: DataTypes.INTEGER,
             allowNull: false,
             autoincrement: true,
             primaryKey: true,
         },
-        Username: {
+        username: {
             type: DataTypes.STRING,
             allowNull: false,
             required: true
         },
-        Password: {
+        password: {
             type: DataTypes.STRING,
             allowNull: false,
             required: true
         },
-        Pawup: {
+        pawup: {
             type: DataTypes.INTEGER,
             defaultValue: 0,
             allowNull: false,
             required: true
-        },
-        AddDate: {
-            type: 'TIMESTAMP',
-            defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
-            allowNull: false,
-            required: true
         }
+    }, {
+        timestamps: true
     });
     return User;
 };
