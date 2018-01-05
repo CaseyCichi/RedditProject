@@ -1,7 +1,7 @@
 'use strict'
 
 module.exports = (sequelize, DataTypes) => {
-    const Post = sequelize.define('content', {
+    const Content = sequelize.define('content', {
         ContentId: {
             type: DataTypes.INTEGER,
             allowNull: false,
@@ -31,5 +31,5 @@ module.exports = (sequelize, DataTypes) => {
             required: true
         }
     });
-    return Post;
+    return Content;
 };
