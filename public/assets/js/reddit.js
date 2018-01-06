@@ -60,16 +60,36 @@ $(document).ready(function () {
   $('.upvote').on("click", function(event) {
     var id = "#" + $(this).data('id');
     var score = $(id).data('value');
-    $(id).data('value', ++score); 
-    $(id).text(score);
 
+    if($(this).data('clicked') == false) {
+      $(id).data('value', ++score); 
+      $(id).text(score);
+      $(this).data('clicked', true);
+    }
+    else {
+      $(id).data('value', --score); 
+      $(id).text(score);
+      $(this).data('clicked', false);
+    }
   });
+
   $('.downvote').on("click", function(event) {
+
     var id = "#" + $(this).data('id');
     var score = $(id).data('value');
-    if(score == 0) return;
-    $(id).data('value', --score); 
-    $(id).text(score);
+   
+    if($(this).data('clicked') == false) {
+      console.log("FALSE");
+      if(score == 0) return;
+      $(id).data('value', --score); 
+      $(id).text(score);
+      $(this).data('clicked', true);
+    }
+    else {
+      $(id).data('value', ++score); 
+      $(id).text(score);
+      $(this).data('clicked', false);
+    }
 
   });
 });

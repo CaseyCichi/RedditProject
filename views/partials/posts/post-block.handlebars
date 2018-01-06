@@ -7,8 +7,8 @@
 			<span class="card-title grey-text text-darken-4">Card Title {{title}} | Fake date {{name}}
 				{{!-- <i class="material-icons right">more_vert</i> --}}
 			<div class="col right s2">
-						<a class="right btn-flat vote waves-effect waves-green upvote" data-id="{{id}}"><i class="fa fa-angle-up" aria-hidden="true"></i></a>
-						<a class="right btn-flat vote waves-effect waves-red downvote" data-id="{{id}}"><i class="fa fa-angle-down" aria-hidden="true"></i></a>
+						<a class="right btn-flat vote waves-effect waves-green upvote" data-id="{{id}}" data-clicked=false><i class="fa fa-angle-up" aria-hidden="true"></i></a>
+						<a class="right btn-flat vote waves-effect waves-red downvote" data-id="{{id}}" data-clicked=false><i class="fa fa-angle-down" aria-hidden="true"></i></a>
 						<span class="center-align valign-wrapper" style="margin-top: 1.5rem" id="score">
 							<span id="{{id}}" data-value=0>0{{score}}</span>
 						</span>
