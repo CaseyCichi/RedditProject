@@ -1,7 +1,7 @@
 var db = require("../models");
 
-module.exports = function (app) {
-    app.get("/api/users", function (req, res) {
+module.exports = (app) => {
+    app.get("/api/users", (req, res) => {
         db.User.findAll({
             include: [{
                 model: db.Post,
@@ -9,25 +9,24 @@ module.exports = function (app) {
                     attributes: ['username']
                 }
             }]
-        }).then(function (dbUser) {
+        }).then((dbUser) => {
             res.json(dbUser);
         });
     });
 
-    app.get("/api/users/:id", function (req, res) {
-        db.Author.findOne({
+    app.get("/api/users/:id", (req, res) => {
+        db.User.findOne({
             where: {
                 id: req.params.id
             },
             include: [db.Post]
-        }).then(function (dbUser) {
+        }).then((dbUser) => {
             res.json(dbUser);
         });
     });
-    var db = require("../models");
 
-    module.exports = function (app) {
-        app.get("/api/users", function (req, res) {
+    module.exports = (app) => {
+        app.get("/api/users", (req, res) => {
             db.User.findAll({
                 include: [{
                     model: db.Post,
@@ -35,52 +34,52 @@ module.exports = function (app) {
                         attributes: ['username']
                     }
                 }]
-            }).then(function (dbUser) {
+            }).then((dbUser) => {
                 res.json(dbUser);
             });
         });
 
-        app.get("/api/users/:id", function (req, res) {
-            db.Author.findOne({
+        app.get("/api/users/:id", (req, res) => {
+            db.User.findOne({
                 where: {
                     id: req.params.id
                 },
                 include: [db.Post]
-            }).then(function (dbUser) {
+            }).then((dbUser) => {
                 res.json(dbUser);
             });
         });
 
-        app.post("/api/users", function (req, res) {
-            db.Author.create(req.body).then(function (dbUser) {
+        app.post("/api/users", (req, res) => {
+            db.User.create(req.body).then((dbUser) => {
                 res.json(dbUser);
             });
         });
 
-        app.delete("/api/users/:id", function (req, res) {
-            db.Author.destroy({
+        app.delete("/api/users/:id", (req, res) => {
+            db.User.destroy({
                 where: {
                     id: req.params.id
                 }
-            }).then(function (dbUser) {
+            }).then((dbUser) => {
                 res.json(dbUser);
             });
         });
 
     };
 
-    app.post("/api/users", function (req, res) {
-        db.Author.create(req.body).then(function (dbUser) {
+    app.post("/api/users", (req, res) => {
+        db.User.create(req.body).then((dbUser) => {
             res.json(dbUser);
         });
     });
 
-    app.delete("/api/users/:id", function (req, res) {
-        db.Author.destroy({
+    app.delete("/api/users/:id", (req, res) => {
+        db.User.destroy({
             where: {
                 id: req.params.id
             }
-        }).then(function (dbUser) {
+        }).then((dbUser) => {
             res.json(dbUser);
         });
     });

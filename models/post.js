@@ -1,42 +1,29 @@
-module.exports = function (sequelize, DataTypes) {
+module.exports = (sequelize, DataTypes) => {
     var Post = sequelize.define('Post', {
-        // postid: {
-        //     type: DataTypes.INTEGER,
-        //     allowNull: false,
-        //     autoincrement: true,
-        //     primaryKey: true,
-        // },
+        postid: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            autoincrement: true,
+            primaryKey: true,
+        },
         parentid: {
             type: DataTypes.INTEGER,
             allowNull: true,
             required: false,
         },
         posttype: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.ENUM,
+            values: ['Post', 'Comment', 'URL'],
             allowNull: false,
-            required: true,
-            primaryKey: true,
-        },
-        // userid: {
-        //     type: DataTypes.INTEGER,
-        //     allowNull: false,
-        //     required: true,
-        //     foreignKey: true,
-        // }
+            required: true
+        }
     }, {
         timestamps: true
     });
 
-    Post.associate = function (models) {
-        Post.belongsTo(models.User, {
-            foreignKey: {
-                allowNull: false
-            }
-        });
-        Post.hasOne(models.Content, {
-            // as: 'Content',
-            primaryKey: 'id'
-        });
+    Post.associate = (models) => {
+        Post.belongsTo(models.User);
+        Post.hasOne(models.Content);
     };
     return Post;
 };

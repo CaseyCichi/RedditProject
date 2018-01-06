@@ -1,53 +1,65 @@
 var db = require("../models");
 
-module.exports = function (app) {
-    app.get("/api/posts", function (req, res) {
+module.exports = (app) => {
+    app.get("/api/posts", (req, res) => {
         var query = {};
         if (req.query.user_id) {
             query.id = req.query.user_id;
         }
         db.Post.findAll({
             where: query,
-            include: [db.User]
-        }).then(function (dbPost) {
+            include: [db.User, db.Content]
+        }).then((dbPost) => {
             res.json(dbPost);
         });
     });
 
-    app.get("/api/posts/:id", function (req, res) {
+    app.get("/api/posts/:id", (req, res) => {
         db.Post.findOne({
             where: {
                 id: req.params.id
             },
-            include: [db.User]
-        }).then(function (dbPost) {
+            include: [db.User, db.Content]
+        }).then((dbPost) => {
             res.json(dbPost);
         });
     });
 
-    app.post("/api/posts", function (req, res) {
-        db.Post.create(req.body).then(function (dbPost) {
+    app.post("/api/posts", (req, res) => {
+        var query = {};
+
+        if (req.query.posttype === 'Post') {
+            query.posttype = 'Post';
+        }
+
+        if (req.query.posttype === 'Comment') {
+            query.posttype = 'Comment';
+        }
+
+        db.Post.create(req.body).then((dbPost) => {
+            res.json(dbPost);
+        }).then((dbPost) => {
             res.json(dbPost);
         });
     });
 
-    app.delete("/api/posts/:id", function (req, res) {
+    app.delete("/api/posts/:id", (req, res) => {
         db.Post.destroy({
             where: {
                 id: req.params.id
             }
-        }).then(function (dbPost) {
+        }).then((dbPost) => {
             res.json(dbPost);
         });
     });
 
-    app.put("/api/posts", function (req, res) {
+    app.put("/api/posts", (req, res) => {
         db.Post.update(
             req.body, {
                 where: {
                     id: req.body.id
                 }
-            }).then(function (dbPost) {
+            }).then((dbPost) => {
             res.json(dbPost);
         });
     });

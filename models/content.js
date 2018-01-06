@@ -1,37 +1,32 @@
-module.exports = function (sequelize, DataTypes) {
+module.exports = (sequelize, DataTypes) => {
     var Content = sequelize.define('Content', {
-        // contentid: {
-        //     type: DataTypes.INTEGER,
-        //     allowNull: false,
-        //     autoincrement: true,
-        //     primaryKey: true,
-        // },
-        // postid: {
-        //     type: DataTypes.INTEGER,
-        //     allowNull: false,
-        //     required: true,
-        //     primaryKey: true,
-        // },
         title: {
             type: DataTypes.STRING,
             allowNull: true,
             required: false,
+            len: {
+                notEmpty: true,
+                args: [10, 100],
+                msg: 'Title must be 10 to 256 characters.'
+            }
         },
         content: {
             type: DataTypes.STRING,
             allowNull: true,
             required: false,
+            len: {
+                notEmpty: true,
+                args: [1, 1000],
+                msg: 'Content must be 1 to 1000 characters.'
+            }
         }
     }, {
         timestamps: true
     });
 
-    Content.associate = function (models) {
-        Content.belongsTo(models.Post, {
-            primaryKey: 'id'
-        });
+    Content.associate = (models) => {
+        Content.belongsTo(models.Post);
     };
-
 
     return Content;
 };
