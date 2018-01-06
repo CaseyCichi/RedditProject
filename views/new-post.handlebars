@@ -1,13 +1,13 @@
 <div class="container">
   <div class="row">
-    <form class="col s12">
+    <form class="col s12 new-post">
       <div class="row">
         <div class="input-field col s6 offset-s3">
           <input value="" placeholder="url" type="text" class="validate" id="url">
           <label for="url">Url</label>
         </div>
       </div>
-      <div class="row">
+{{!--       <div class="row">
         <div class="file-field input-field col s6 offset-s3">
           <div class="btn red lighten-3">
             <span>File</span>
@@ -18,10 +18,18 @@
           </div>
         </div>
       </div>
+ --}}      
+
       <div class="row">
         <div class="input-field col s6 offset-s3">
-          <textarea id="textarea1" class="materialize-textarea" data-length="120"></textarea>
-          <label for="textarea1">Text (Optional)</label>
+          <input value="" placeholder="title" type="text" class="validate" id="title">
+          <label for="url">Title</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6 offset-s3">
+          <textarea id="content" class="materialize-textarea" data-length="120"></textarea>
+          <label for="content">Text (Optional)</label>
         </div>
       </div>
       <div class="row">

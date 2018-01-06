@@ -1,7 +1,7 @@
 <div class="col s6">
 	<div class="card section">
 		<div class="card-image waves-effect waves-block waves-light">
-			<img class="" src="/assets/images/stock.png {{image}}">
+			<img class="" src="https://i.imgur.com/Wm1xcNZ.jpg{{image}}">
 		</div>
 		<div class="card-content">
 			<span class="card-title grey-text text-darken-4">Card Title {{title}} | Fake date {{name}}
@@ -18,12 +18,24 @@
 
 			<ul class="post-list">
 				<li >
-					<a href="{{full-page}}">Comments</a>
+					<a href="{{full-page}}" >Comments</a>
 				</li>
 				<li>
-					<a href="{{share-link}}">Share</a>
+					<a class="modal-trigger" href="#modal{{id}}" >Share</a>
+					  <!-- Modal Structure -->
+				  <div id="modal{{id}}" class="modal">
+				    <div class="modal-content">
+				      <h4>Shareable link</h4>
+				      <p>Share this link with your friends: {{name}}</p>
+				    </div>
+				    <div class="modal-footer">
+				      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+				    </div>
+				  </div>
+
 				</li>
 			</ul>
 		</div>
 	</div>
+
 </div>
