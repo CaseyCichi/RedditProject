@@ -34,14 +34,12 @@ module.exports = (sequelize, DataTypes) => {
     }, {
         timestamps: true,
         hooks: {
-            beforeCreate: (user, options, fn) => {
+            beforeCreate: (user, options, sequelize) => {
                 user.createdat = new Date();
                 user.updatedat = new Date();
-                fn(null, user);
             },
             beforeUpdate: (user, options, fn) => {
                 user.updatedat = new Date();
-                fn(null, user);
             }
         }
     });
@@ -49,6 +47,13 @@ module.exports = (sequelize, DataTypes) => {
     User.associate = (models) => {
         User.hasMany(models.Post);
     };
+
+
+    User.create({ username: 'Mochi', password: 'mochimochi', furma: 0 }, { fields: [ 'username', 'password', 'furma' ] }).then(user => {
+        console.log(user.get({
+        plain: true
+        }));
+    });
 
     return User;
 };

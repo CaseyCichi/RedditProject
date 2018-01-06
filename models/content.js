@@ -26,11 +26,9 @@ module.exports = (sequelize, DataTypes) => {
             beforeCreate: (content, options, fn) => {
                 content.createdat = new Date();
                 content.updatedat = new Date();
-                fn(null, content);
             },
             beforeUpdate: (content, options, fn) => {
                 content.updatedat = new Date();
-                fn(null,content);
             }
         }
     });

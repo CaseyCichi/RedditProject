@@ -21,13 +21,11 @@ module.exports = (sequelize, DataTypes) => {
         timestamps: true,
         hooks: {
             beforeCreate: (post, options, fn) => {
-                posts.createdat = new Date();
-                posts.updatedat = new Date();
-                fn(null, post);
+                post.createdat = new Date();
+                post.updatedat = new Date();
             },
             beforeUpdate: (post, options, fn) => {
                 post.updatedat = new Date();
-                fn(null, post);
             }
         }
     });
