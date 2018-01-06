@@ -57,6 +57,29 @@ $(document).ready(function () {
   //     }
   //     );
   // });
+
+  $('#submit').on('click', function(event) {
+  //   // Make sure to preventDefault on a submit event.
+    event.preventDefault();
+    var newPost = {
+      url: $('#url').val().trim(),
+      title: $('#title').val().trim(),
+      content: $('#content').val().trim()
+    };
+
+    $.ajax('/post' , {
+      type: 'POST',
+      data: newPost
+    }).then( function() {
+      console.log('created new post');
+    }
+    );
+
+    $('#url').val('');
+    $('#title').val('');
+    $('#content').val(''); 
+
+  });
   $('.upvote').on("click", function(event) {
     var id = "#" + $(this).data('id');
     var score = $(id).data('value');

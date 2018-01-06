@@ -33,4 +33,10 @@ router.get('/profile', function(req, res) {
 router.get('/main-post/:id', function(req, res) {
   res.render('main-post');
 });
+
+router.post('/post', function(req, res) {
+  console.log("creating new post");
+  console.log(req.body);
+  res.redirect('/');
+}); 
 module.exports = router;
