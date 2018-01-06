@@ -36,3 +36,10 @@ label {
 	font-size: 2rem !important;
 
 }
+
+.score {
+	display: block;
+	padding-top: 1rem;
+	margin-right: 2rem;
+	position:absolute;
+}

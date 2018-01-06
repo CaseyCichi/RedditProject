@@ -11,13 +11,21 @@
       <div class="col right s1">
         <a class="right btn-flat vote waves-effect waves-green upvote" data-id="{{headline.id}}" data-clicked=false><i class="fa fa-angle-up" aria-hidden="true"></i></a>
         <a class="right btn-flat vote waves-effect waves-red downvote" data-id="{{headline.id}}" data-clicked=false><i class="fa fa-angle-down" aria-hidden="true"></i></a>
-        <span class="center-align valign-wrapper" style="margin-top: 1.5rem" id="score">
-          <span id="{{headline.id}}" data-value={{headline.score}}>{{headline.score}}</span>
-        </span>
 
       </div>
       <div class="card-action header-link">
-        <a class="" href="#{{headline.comment}}">Comment</a>
+        <ul class="post-list">
+          <li>
+            <a class="" href="#{{headline.comment}}">Comment</a>
+          </li>
+          <li>
+            <span>
+              <span id="{{headline.id}}" data-value={{headline.score}}>{{headline.score}}</span>
+            </span>
+            
+          </li>
+        </ul>
+
       </div>
     </div>
   </div>

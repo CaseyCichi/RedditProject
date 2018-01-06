@@ -9,10 +9,10 @@
 			<div class="col right s2">
 						<a class="right btn-flat vote waves-effect waves-green upvote" data-id="{{id}}" data-clicked=false><i class="fa fa-angle-up" aria-hidden="true"></i></a>
 						<a class="right btn-flat vote waves-effect waves-red downvote" data-id="{{id}}" data-clicked=false><i class="fa fa-angle-down" aria-hidden="true"></i></a>
-						<span class="center-align valign-wrapper" style="margin-top: 1.5rem" id="score">
-							<span id="{{id}}" data-value=0>0{{score}}</span>
+{{!-- 						<span class="center-align valign-wrapper score" style="margin-top: 1.5rem">
+							<span id="{{id}}" data-value=0 class="score valign-wrapper">0{{score}}</span>
 						</span>
-			</div>
+ --}}			</div>
 
 			</span>
 
@@ -33,6 +33,12 @@
 				    </div>
 				  </div>
 
+				</li>
+				<li>
+						<span class="">
+							<span id="{{id}}" data-value=0>0{{score}}</span>
+						</span>
+					
 				</li>
 			</ul>
 		</div>
