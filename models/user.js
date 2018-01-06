@@ -49,11 +49,11 @@ module.exports = (sequelize, DataTypes) => {
     };
 
 
-    User.create({ username: 'Mochi', password: 'mochimochi', furma: 0 }, { fields: [ 'username', 'password', 'furma' ] }).then(user => {
-        console.log(user.get({
-        plain: true
-        }));
-    });
+    // User.create({ username: 'Mochi', password: 'mochimochi', furma: 0 }, { fields: [ 'username', 'password', 'furma' ] }).then(user => {
+    //     console.log(user.get({
+    //     plain: true
+    //     }));
+    // });
 
     return User;
 };

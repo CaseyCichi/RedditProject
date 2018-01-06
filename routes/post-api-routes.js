@@ -7,10 +7,21 @@ module.exports = (app) => {
             query.id = req.query.user_id;
         }
         db.Post.findAll({
-            where: query,
-            include: [db.User, db.Content]
+            // where: query,
+            // include: [db.User, db.Post]
         }).then((dbPost) => {
-            res.json(dbPost);
+            //res.json(dbPost);
+            var hbsObject = {
+                cats: dbPost,
+                headline: {
+                  id: 0,
+                  title: "Cute dogs",
+                  Date: "1/3/2018",
+                  score: 50,
+                }
+              };
+          
+            res.render('index', hbsObject);
         });
     });
 
@@ -26,16 +37,15 @@ module.exports = (app) => {
     });
 
     app.post("/api/posts", (req, res) => {
-        var query = {};
+        // var query = {};
 
-        if (req.query.posttype === 'Post') {
-            query.posttype = 'Post';
-        }
+        // if (req.query.posttype === 'Post') {
+        //     query.posttype = 'Post';
+        // }
 
-        if (req.query.posttype === 'Comment') {
-            query.posttype = 'Comment';
-        }
-
+        // if (req.query.posttype === 'Comment') {
+        //     query.posttype = 'Comment';
+        // }
         db.Post.create(req.body).then((dbPost) => {
             res.json(dbPost);
         }).then((dbPost) => {
