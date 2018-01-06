@@ -28,5 +28,9 @@ router.get('/post', function(req, res) {
 
 router.get('/profile', function(req, res) {
   res.render('profile');
-})
+});
+
+router.get('/main-post', function(req, res) {
+  res.render('main-post');
+});
 module.exports = router;
