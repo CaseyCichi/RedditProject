@@ -8,8 +8,8 @@ module.exports = (sequelize, DataTypes) => {
             validate: {
                 notEmpty: true,
                 len: {
-                  args: [3, 30],
-                  msg: 'Username must be 8 to 30 characters.'
+                    args: [3, 30],
+                    msg: 'Username must be 8 to 30 characters.'
                 }
             }
         },
@@ -20,8 +20,8 @@ module.exports = (sequelize, DataTypes) => {
             validate: {
                 notEmpty: true,
                 len: {
-                  args: [8, 255],
-                  msg: 'Password must be 8 to 255 characters.'
+                    args: [8, 255],
+                    msg: 'Password must be 8 to 255 characters.'
                 }
             }
         },
@@ -32,7 +32,18 @@ module.exports = (sequelize, DataTypes) => {
             required: true
         }
     }, {
-        timestamps: true
+        timestamps: true,
+        hooks: {
+            beforeCreate: (user, options, fn) => {
+                user.createdat = new Date();
+                user.updatedat = new Date();
+                fn(null, user);
+            },
+            beforeUpdate: (user, options, fn) => {
+                user.updatedat = new Date();
+                fn(null, user);
+            }
+        }
     });
 
     User.associate = (models) => {

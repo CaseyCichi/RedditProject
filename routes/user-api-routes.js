@@ -51,6 +51,7 @@ module.exports = (app) => {
         });
 
         app.post("/api/users", (req, res) => {
+            
             db.User.create(req.body).then((dbUser) => {
                 res.json(dbUser);
             });

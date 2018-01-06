@@ -18,7 +18,18 @@ module.exports = (sequelize, DataTypes) => {
             required: true
         }
     }, {
-        timestamps: true
+        timestamps: true,
+        hooks: {
+            beforeCreate: (post, options, fn) => {
+                posts.createdat = new Date();
+                posts.updatedat = new Date();
+                fn(null, post);
+            },
+            beforeUpdate: (post, options, fn) => {
+                post.updatedat = new Date();
+                fn(null, post);
+            }
+        }
     });
 
     Post.associate = (models) => {
