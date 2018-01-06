@@ -1,7 +1,7 @@
 {
     "development": {
       "username": "root",
-      "password": "baseball1",
+      "password": "root",
       "database": "barkfeed_db",
       "host": "localhost",
       "dialect": "mysql"
@@ -14,10 +14,10 @@
       "dialect": "mysql"
     },
     "production": {
-      "username": "root",
-      "password": "baseball1",
-      "database": "database_production",
-      "host": "127.0.0.1",
+      "username": "n1ua6ktlnzf4xg1d",
+      "password": "uj05484mutu5n596",
+      "database": "neva6tywin6ijxyl",
+      "host": "wftuqljwesiffol6.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
       "dialect": "mysql"
     }
   }
