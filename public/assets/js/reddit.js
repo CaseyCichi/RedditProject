@@ -67,7 +67,7 @@ $(document).ready(function () {
       content: $('#content').val().trim()
     };
 
-    $.ajax('/post' , {
+    $.ajax('/api/posts' , {
       type: 'POST',
       data: newPost
     }).then( function() {

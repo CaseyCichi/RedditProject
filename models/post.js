@@ -65,17 +65,17 @@ module.exports = (sequelize, DataTypes) => {
         Post.hasOne(models.Content);
     };
 
-    Post.create({
-        url: 'https://news.nationalgeographic.com/content/dam/news/photos/000/755/75552.ngsversion.1422285553360.adapt.1900.1.jpg',
-        title: 'Mochi',
-        content: 'mochimochi',
-    }, {
-        fields: ['url', 'title', 'content']
-    }).then(post => {
-        console.log(post.get({
-            plain: true
-        }));
-    });
+    // Post.create({
+    //     url: 'https://news.nationalgeographic.com/content/dam/news/photos/000/755/75552.ngsversion.1422285553360.adapt.1900.1.jpg',
+    //     title: 'Mochi',
+    //     content: 'mochimochi',
+    // }, {
+    //     fields: ['url', 'title', 'content']
+    // }).then(post => {
+    //     console.log(post.get({
+    //         plain: true
+    //     }));
+    // });
 
     return Post;
 };

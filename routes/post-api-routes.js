@@ -1,7 +1,7 @@
 var db = require("../models");
 
 module.exports = (app) => {
-    app.get("/api/posts", (req, res) => {
+    app.get("/", (req, res) => {
         var query = {};
         if (req.query.user_id) {
             query.id = req.query.user_id;
@@ -37,15 +37,6 @@ module.exports = (app) => {
     });
 
     app.post("/api/posts", (req, res) => {
-        // var query = {};
-
-        // if (req.query.posttype === 'Post') {
-        //     query.posttype = 'Post';
-        // }
-
-        // if (req.query.posttype === 'Comment') {
-        //     query.posttype = 'Comment';
-        // }
         db.Post.create(req.body).then((dbPost) => {
             res.json(dbPost);
         }).then((dbPost) => {
